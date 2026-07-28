@@ -3,20 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Personal Website</title>
+  <title>Helena Guajardo | Technical Product Manager</title>
+  
+  <!-- Typography: Google Fonts (Outfit + Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Color Palette & Variables */
+    /* Sky Blue Artsy Theme Variables */
     :root {
-      --primary: #1e3a8a;      /* Deep Navy Blue */
-      --secondary: #3b82f6;    /* Accent Blue */
-      --bg-light: #f8fafc;     /* Off-White Background */
-      --bg-alt: #eff6ff;       /* Soft Blue Background */
-      --text-dark: #1e293b;    /* Slate Text */
-      --text-muted: #64748b;   /* Muted Gray Text */
-      --card-bg: #ffffff;      /* Pure White */
+      --primary: #0284c7;        /* Deep Sky Blue */
+      --secondary: #38bdf8;      /* Bright Sky Accent */
+      --accent-soft: #e0f2fe;    /* Soft Sky Glow */
+      --bg-light: #f0f9ff;       /* Softest Sky Blue Tint Background */
+      --bg-alt: #f8fafc;         /* Crisp White-Gray Canvas */
+      --text-dark: #0f172a;      /* Slate Black */
+      --text-muted: #475569;     /* Deep Muted Blue Gray */
+      --card-bg: rgba(255, 255, 255, 0.85); /* Glassmorphic Card */
+      --shadow-art: 0 20px 25px -5px rgba(56, 189, 248, 0.15), 0 8px 10px -6px rgba(56, 189, 248, 0.1);
     }
 
-    /* Base Reset & Smooth Scroll */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -28,157 +35,301 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--text-dark);
       background-color: var(--bg-light);
-      line-height: 1.6;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Floating Artsy Background Accents */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -10%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, rgba(255,255,255,0) 70%);
+      z-index: -1;
+      border-radius: 50%;
     }
 
     /* Sticky Navigation Header */
     header {
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      background-color: rgba(240, 249, 255, 0.85);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       z-index: 1000;
     }
 
     nav {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 1.25rem 2rem;
     }
 
     .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 800;
       color: var(--primary);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--text-dark);
-      font-weight: 500;
-      transition: color 0.2s ease;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
     }
 
     .nav-links a:hover {
-      color: var(--secondary);
+      color: var(--primary);
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
       color: white;
       text-align: center;
-      padding: 5rem 1.5rem;
+      padding: 6rem 1.5rem 7rem;
+      clip-path: ellipse(150% 100% at 50% 0%);
+      position: relative;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -1px;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.35rem;
+      opacity: 0.95;
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 500;
     }
 
     /* Main Content Sections */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 4.5rem 1.5rem;
-    }
-
-    /* Alternating Background for Sections */
-    #experience {
-      background-color: var(--bg-alt);
-      max-width: 100%;
+      padding: 5rem 1.5rem;
     }
 
     .section-container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.25rem;
       color: var(--primary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      display: inline-block;
       position: relative;
     }
 
     h2::after {
       content: '';
       display: block;
-      width: 50px;
-      height: 4px;
-      background-color: var(--secondary);
-      margin-top: 0.5rem;
-      border-radius: 2px;
+      width: 60%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary), transparent);
+      margin-top: 0.4rem;
+      border-radius: 4px;
     }
 
-    /* Experience Cards */
+    /* About Me Grid with Sliding Photo Frame */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      position: relative;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 0.5rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow-art);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-card:nth-child(1) {
+      transform: rotate(-3deg);
+    }
+
+    .photo-card:nth-child(2) {
+      transform: rotate(4deg) translateY(15px);
+    }
+
+    .photo-card:hover {
+      transform: scale(1.05) rotate(0deg);
+      z-index: 10;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* Experience Section Styling */
+    #experience {
+      background-color: var(--bg-alt);
+      max-width: 100%;
+      border-radius: 40px;
+      padding: 5rem 1.5rem;
+    }
+
     .card {
       background: var(--card-bg);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-      border-left: 4px solid var(--secondary);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-art);
+      border: 1px solid rgba(224, 242, 254, 0.8);
+      position: relative;
     }
 
     .card h3 {
       color: var(--primary);
+      font-size: 1.35rem;
       margin-bottom: 0.25rem;
     }
 
     .card .date {
-      font-size: 0.875rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card ul {
+      list-style-type: none;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
       color: var(--text-muted);
-      margin-bottom: 0.75rem;
+    }
+
+    .card ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
     }
 
     /* Interests List */
     .interests-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
     }
 
     .interest-item {
       background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-art);
+      border: 1px solid white;
+      transition: transform 0.3s ease;
+    }
+
+    .interest-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .interest-item h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: var(--primary);
+      padding: 3rem 2rem;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
       color: white;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     footer a {
-      color: #93c5fd;
+      color: var(--secondary);
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Scroll-Driven Animations (Slide In) */
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .appear {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -187,7 +338,7 @@
   <!-- Interactive Header -->
   <header>
     <nav>
-      <a href="#" class="logo">Your Name</a>
+      <a href="#" class="logo">Helena Guajardo</a>
       <ul class="nav-links">
         <li><a href="#about">About Me</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -198,16 +349,35 @@
 
   <!-- Hero Header -->
   <div class="hero">
-    <h1>Hello, I'm [Your Name]</h1>
-    <p>Welcome to my personal website</p>
+    <h1>Hello, I'm Helena</h1>
+    <p>Technical Product Manager blending Computer Science precision with user-obsessed design.</p>
   </div>
 
   <!-- About Me Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Write a brief introduction about yourself here. Talk about your background, what drives you, or what you're currently working on. Keep it friendly yet professional!
-    </p>
+    <div class="about-grid">
+      <div class="about-text slide-in-left">
+        <p>
+          I build high-impact financial tech, API infrastructure, and real-time data platforms[cite: 1]. With a Computer Science major and Psychology minor from Northwestern University, I specialize in bridging complex technical backend systems with intuitive, effortless user experiences[cite: 1].
+        </p>
+        <p>
+          Whether scaling robotics data collection to thousands of hours, building end-to-end expense management features, or designing OCR models for real-time receipt processing, I thrive at the intersection of data, engineering, and human behavior[cite: 1].
+        </p>
+      </div>
+
+      <!-- Sliding Photo Gallery Grid -->
+      <div class="photo-gallery slide-in-right">
+        <div class="photo-card">
+          <!-- Replace src with your picture link -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Helena Guajardo Photo 1">
+        </div>
+        <div class="photo-card">
+          <!-- Replace src with your picture link -->
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Helena Guajardo Photo 2">
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Experience Section -->
@@ -215,43 +385,85 @@
     <section class="section-container">
       <h2>Experience</h2>
       
-      <div class="card">
-        <h3>Job Title / Role — Company</h3>
-        <div class="date">2024 – Present</div>
-        <p>Brief summary of your responsibilities, key accomplishments, or technologies used in this role.</p>
+      <div class="card slide-in-up">
+        <h3>Product Operations Analyst — Instawork Robotics Lab</h3>
+        <div class="date">September 2025 – Present</div>
+        <ul>
+          <li>Led cross-functional initiatives scaling robotics data collection from 100 monthly hours to 1,000+ daily hours through payment workflow redesign[cite: 1].</li>
+          <li>Engineered real-time AI payout systems using SQL and Python, cutting payout settlement latency from 2 days to near real-time for 1,700+ daily active users[cite: 1].</li>
+          <li>Built custom inventory management software in Replit to track 3,000+ devices across 25 states using FedEx and Gmail APIs[cite: 1].</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <h3>Previous Role — Organization</h3>
-        <div class="date">2022 – 2024</div>
-        <p>Highlights of what you achieved, projects you led, or skills you mastered during this position.</p>
+      <div class="card slide-in-up">
+        <h3>Associate Product Manager — Sage Intacct</h3>
+        <div class="date">August 2024 – September 2025</div>
+        <ul>
+          <li>Owned end-to-end features for Expense Management including credit card linking, VAT support, and mobile workflows across 3,400+ global enterprises[cite: 1].</li>
+          <li>Drove 2x automation adoption through AI receipt classification and automated default employee allocation workflows[cite: 1].</li>
+          <li>Evaluated acquisition due diligence for AI-powered expense management applications[cite: 1].</li>
+        </ul>
+      </div>
+
+      <div class="card slide-in-up">
+        <h3>Machine Learning PM Intern — Numerator</h3>
+        <div class="date">June 2023 – August 2023</div>
+        <ul>
+          <li>Built an OCR computer vision model extracting financial data from receipts, reducing data loss from 3% to &lt;0.5%[cite: 1].</li>
+          <li>Scoped product requirements saving $100K+ annually by replacing manual data entry with real-time in-app ML feedback[cite: 1].</li>
+        </ul>
       </div>
     </section>
   </div>
 
   <!-- Interests Section -->
   <section id="interests">
-    <h2>Interests</h2>
+    <h2>Interests & Leadership</h2>
     <div class="interests-grid">
-      <div class="interest-item">
-        <h3>💻 Technology</h3>
-        <p>Web Development, AI, Open Source</p>
+      <div class="interest-item slide-in-up">
+        <h3>🤖 Northwestern AI Club</h3>
+        <p>Co-Founder & Executive Team member leading 100+ active members in applied AI industry discussions[cite: 1].</p>
       </div>
-      <div class="interest-item">
-        <h3>📚 Reading</h3>
-        <p>Non-fiction, Tech Trends, Sci-Fi</p>
+      <div class="interest-item slide-in-up">
+        <h3>🌍 Global Perspective</h3>
+        <p>Studied abroad at Universidad Carlos III de Madrid, passion for international fintech expansion[cite: 1].</p>
       </div>
-      <div class="interest-item">
-        <h3>🌱 Outdoors</h3>
-        <p>Hiking, Photography, Cycling</p>
+      <div class="interest-item slide-in-up">
+        <h3>💡 Tech Architecture</h3>
+        <p>Passionate about APIs, financial data mapping, system design, and AI developer workflows[cite: 1].</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Your Name • Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    <p>&copy; 2026 Helena Guajardo • Built with Sky Blue Elegance • Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
   </footer>
+
+  <!-- Scroll Animation JavaScript -->
+  <script>
+    const faders = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up');
+
+    const appearOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          return;
+        } else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 
 </body>
 </html>
