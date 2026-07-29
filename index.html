@@ -3,25 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Helena Guajardo | Technical Product Manager</title>
-  
-  <!-- Typography: Google Fonts (Outfit + Plus Jakarta Sans) -->
+  <title>Helena Guajardo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
   <style>
-    /* Sky Blue Artsy Theme Variables */
+    /* CSS Variables for Modern/Mature Palette */
     :root {
-      --primary: #0284c7;        /* Deep Sky Blue */
-      --secondary: #38bdf8;      /* Bright Sky Accent */
-      --accent-soft: #e0f2fe;    /* Soft Sky Glow */
-      --bg-light: #f0f9ff;       /* Softest Sky Blue Tint Background */
-      --bg-alt: #f8fafc;         /* Crisp White-Gray Canvas */
-      --text-dark: #0f172a;      /* Slate Black */
-      --text-muted: #475569;     /* Deep Muted Blue Gray */
-      --card-bg: rgba(255, 255, 255, 0.85); /* Glassmorphic Card */
-      --shadow-art: 0 20px 25px -5px rgba(56, 189, 248, 0.15), 0 8px 10px -6px rgba(56, 189, 248, 0.1);
+      --bg-color: #0f1115;
+      --card-bg: #161920;
+      --border-color: #262a36;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-color: #d4af37; /* Subtle muted gold */
+      --accent-hover: #f1c40f;
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -30,440 +27,387 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, .logo {
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* Floating Artsy Background Accents */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -10%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, var(--accent-soft) 0%, rgba(255,255,255,0) 70%);
-      z-index: -1;
-      border-radius: 50%;
-    }
-
-    /* Sticky Navigation Header */
-    header {
-      position: sticky;
-      top: 0;
-      background-color: rgba(240, 249, 255, 0.85);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      z-index: 1000;
-    }
-
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      padding: 1.25rem 2rem;
+      padding: 2rem 1rem;
+      line-height: 1.6;
     }
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-      letter-spacing: -0.5px;
+    .container {
+      max-width: 850px;
+      width: 100%;
+      margin: 0 auto;
     }
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
-      color: white;
+    /* Hero & Typing Animation */
+    header {
       text-align: center;
-      padding: 6rem 1.5rem 7rem;
-      clip-path: ellipse(150% 100% at 50% 0%);
-      position: relative;
+      padding: 4rem 1rem 2rem;
     }
 
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-      letter-spacing: -1px;
+    .typing-container {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      min-height: 4.5rem;
+      display: inline-block;
     }
 
-    .hero p {
-      font-size: 1.35rem;
-      opacity: 0.95;
-      max-width: 650px;
-      margin: 0 auto;
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: var(--accent-color);
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: var(--transition);
+    }
+
+    .subtitle.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navigation Tabs */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2.5rem 0 3rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    nav.visible {
+      opacity: 1;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1rem;
       font-weight: 500;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: var(--transition);
     }
 
-    /* Main Content Sections */
-    section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
+    .nav-btn:hover {
+      color: var(--text-main);
     }
 
-    .section-container {
-      max-width: 1000px;
-      margin: 0 auto;
+    .nav-btn.active {
+      color: var(--accent-color);
+    }
+
+    .nav-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    /* Content Panels */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
-      font-size: 2.25rem;
-      color: var(--primary);
-      margin-bottom: 2rem;
-      font-weight: 700;
-      display: inline-block;
-      position: relative;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
     }
 
-    h2::after {
-      content: '';
-      display: block;
-      width: 60%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--secondary), transparent);
-      margin-top: 0.4rem;
-      border-radius: 4px;
-    }
-
-    /* About Me Grid with Sliding Photo Frame */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      margin-bottom: 1.2rem;
-      font-size: 1.05rem;
-    }
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      position: relative;
-    }
-
-    .photo-card {
-      background: white;
-      padding: 0.5rem;
-      border-radius: 16px;
-      box-shadow: var(--shadow-art);
-      transition: transform 0.3s ease;
-    }
-
-    .photo-card:nth-child(1) {
-      transform: rotate(-3deg);
-    }
-
-    .photo-card:nth-child(2) {
-      transform: rotate(4deg) translateY(15px);
-    }
-
-    .photo-card:hover {
-      transform: scale(1.05) rotate(0deg);
-      z-index: 10;
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    /* Experience Section Styling */
-    #experience {
-      background-color: var(--bg-alt);
-      max-width: 100%;
-      border-radius: 40px;
-      padding: 5rem 1.5rem;
-    }
-
-    .card {
+    /* About Section */
+    .about-card {
       background: var(--card-bg);
-      border-radius: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
       padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow-art);
-      border: 1px solid rgba(224, 242, 254, 0.8);
-      position: relative;
+      font-size: 1.1rem;
+      color: #cbd5e1;
     }
 
-    .card h3 {
-      color: var(--primary);
-      font-size: 1.35rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .card .date {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .card ul {
-      list-style-type: none;
-    }
-
-    .card ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.6rem;
-      color: var(--text-muted);
-    }
-
-    .card ul li::before {
-      content: "✦";
-      position: absolute;
-      left: 0;
-      color: var(--secondary);
-    }
-
-    /* Interests List */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* Experience Section */
+    .experience-grid {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
 
-    .interest-item {
+    .exp-card {
       background: var(--card-bg);
-      padding: 2rem 1.5rem;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: var(--shadow-art);
-      border: 1px solid white;
-      transition: transform 0.3s ease;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: var(--transition);
     }
 
-    .interest-item:hover {
-      transform: translateY(-5px);
+    .exp-card:hover {
+      border-color: #3b4252;
+      transform: translateY(-2px);
     }
 
-    .interest-item h3 {
-      font-size: 1.25rem;
-      color: var(--primary);
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      color: white;
+    .company-link {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .company-link:hover {
+      color: var(--accent-color);
+    }
+
+    .role-title {
+      font-size: 0.95rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .exp-summary {
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
-    footer a {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
+    /* Interests Section */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
     }
 
-    /* Scroll-Driven Animations (Slide In) */
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .interest-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
     }
 
-    .slide-in-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .interest-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-3px);
     }
 
-    .slide-in-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .interest-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
     }
 
-    .appear {
-      opacity: 1;
-      transform: translateX(0) translateY(0);
+    .interest-title {
+      font-weight: 500;
+      color: var(--text-main);
     }
 
-    @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .typing-container {
+        font-size: 2.2rem;
       }
-      .hero h1 { font-size: 2.4rem; }
+      nav {
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Interactive Header -->
-  <header>
-    <nav>
-      <a href="#" class="logo">Helena Guajardo</a>
-      <ul class="nav-links">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#interests">Interests</a></li>
-      </ul>
+  <div class="container">
+    <!-- Header / Intro -->
+    <header>
+      <div class="typing-container">
+        <span id="typed-name"></span><span class="cursor"></span>
+      </div>
+      <p id="subtitle" class="subtitle">Professional Portfolio</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav id="navbar">
+      <button class="nav-btn active" onclick="openTab(event, 'about')">About</button>
+      <button class="nav-btn" onclick="openTab(event, 'experience')">Experience</button>
+      <button class="nav-btn" onclick="openTab(event, 'interests')">Interests</button>
     </nav>
-  </header>
 
-  <!-- Hero Header -->
-  <div class="hero">
-    <h1>Hello, I'm Helena</h1>
-    <p>Technical Product Manager blending Computer Science precision with user-obsessed design.</p>
+    <!-- Main Content Area -->
+    <main>
+      <!-- About Section -->
+      <section id="about" class="tab-content active">
+        <h2>About Me</h2>
+        <div class="about-card">
+          <p>
+            Hello! I'm Helena Guajardo. I specialize in solving complex technical and business challenges through modern strategy, operations, and innovative technology. I am passionate about creating impactful digital solutions and continuous learning in emerging fields.
+          </p>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="tab-content">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+
+          <!-- Instawork Robotics -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <a href="https://www.instawork.com/robotics" target="_blank" rel="noopener noreferrer" class="company-link">
+                Instawork Robotics ↗
+              </a>
+            </div>
+            <div class="role-title">Robotics Operations & Integration Specialist</div>
+            <p class="exp-summary">
+              Spearheaded technical workflows and automation initiatives integrating physical robotics with scalable labor management platforms to streamline operations and elevate workforce efficiency.
+            </p>
+          </div>
+
+          <!-- Sage Intacct -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <a href="https://www.sage.com/en-us/sage-business-cloud/intacct/" target="_blank" rel="noopener noreferrer" class="company-link">
+                Sage Intacct ↗
+              </a>
+            </div>
+            <div class="role-title">Enterprise Cloud Solutions Specialist</div>
+            <p class="exp-summary">
+              Optimized enterprise financial software integrations, driving operational excellence for business clients by delivering reliable financial technology frameworks and custom cloud strategies.
+            </p>
+          </div>
+
+          <!-- Numerator -->
+          <div class="exp-card">
+            <div class="exp-header">
+              <a href="https://www.numerator.com/" target="_blank" rel="noopener noreferrer" class="company-link">
+                Numerator ↗
+              </a>
+            </div>
+            <div class="role-title">Data Insights & Product Analyst</div>
+            <p class="exp-summary">
+              Analyzed complex consumer behavior data and market intelligence feeds to provide enterprise brands with actionable metrics, predictive insights, and enhanced strategic positioning.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Interests Section -->
+      <section id="interests" class="tab-content">
+        <h2>Interests</h2>
+        <div class="interests-grid">
+          <div class="interest-card">
+            <span class="interest-icon">🥾</span>
+            <div class="interest-title">Hiking</div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-icon">🍳</span>
+            <div class="interest-title">Cooking</div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-icon">🤖</span>
+            <div class="interest-title">AI</div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-icon">✈️</span>
+            <div class="interest-title">Travel</div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <!-- About Me Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-grid">
-      <div class="about-text slide-in-left">
-        <p>
-          I build high-impact financial tech, API infrastructure, and real-time data platforms[cite: 1]. With a Computer Science major and Psychology minor from Northwestern University, I specialize in bridging complex technical backend systems with intuitive, effortless user experiences[cite: 1].
-        </p>
-        <p>
-          Whether scaling robotics data collection to thousands of hours, building end-to-end expense management features, or designing OCR models for real-time receipt processing, I thrive at the intersection of data, engineering, and human behavior[cite: 1].
-        </p>
-      </div>
-
-      <!-- Sliding Photo Gallery Grid -->
-      <div class="photo-gallery slide-in-right">
-        <div class="photo-card">
-          <!-- Replace src with your picture link -->
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Helena Guajardo Photo 1">
-        </div>
-        <div class="photo-card">
-          <!-- Replace src with your picture link -->
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Helena Guajardo Photo 2">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <div id="experience">
-    <section class="section-container">
-      <h2>Experience</h2>
-      
-      <div class="card slide-in-up">
-        <h3>Product Operations Analyst — Instawork Robotics Lab</h3>
-        <div class="date">September 2025 – Present</div>
-        <ul>
-          <li>Led cross-functional initiatives scaling robotics data collection from 100 monthly hours to 1,000+ daily hours through payment workflow redesign[cite: 1].</li>
-          <li>Engineered real-time AI payout systems using SQL and Python, cutting payout settlement latency from 2 days to near real-time for 1,700+ daily active users[cite: 1].</li>
-          <li>Built custom inventory management software in Replit to track 3,000+ devices across 25 states using FedEx and Gmail APIs[cite: 1].</li>
-        </ul>
-      </div>
-
-      <div class="card slide-in-up">
-        <h3>Associate Product Manager — Sage Intacct</h3>
-        <div class="date">August 2024 – September 2025</div>
-        <ul>
-          <li>Owned end-to-end features for Expense Management including credit card linking, VAT support, and mobile workflows across 3,400+ global enterprises[cite: 1].</li>
-          <li>Drove 2x automation adoption through AI receipt classification and automated default employee allocation workflows[cite: 1].</li>
-          <li>Evaluated acquisition due diligence for AI-powered expense management applications[cite: 1].</li>
-        </ul>
-      </div>
-
-      <div class="card slide-in-up">
-        <h3>Machine Learning PM Intern — Numerator</h3>
-        <div class="date">June 2023 – August 2023</div>
-        <ul>
-          <li>Built an OCR computer vision model extracting financial data from receipts, reducing data loss from 3% to &lt;0.5%[cite: 1].</li>
-          <li>Scoped product requirements saving $100K+ annually by replacing manual data entry with real-time in-app ML feedback[cite: 1].</li>
-        </ul>
-      </div>
-    </section>
-  </div>
-
-  <!-- Interests Section -->
-  <section id="interests">
-    <h2>Interests & Leadership</h2>
-    <div class="interests-grid">
-      <div class="interest-item slide-in-up">
-        <h3>🤖 Northwestern AI Club</h3>
-        <p>Co-Founder & Executive Team member leading 100+ active members in applied AI industry discussions[cite: 1].</p>
-      </div>
-      <div class="interest-item slide-in-up">
-        <h3>🌍 Global Perspective</h3>
-        <p>Studied abroad at Universidad Carlos III de Madrid, passion for international fintech expansion[cite: 1].</p>
-      </div>
-      <div class="interest-item slide-in-up">
-        <h3>💡 Tech Architecture</h3>
-        <p>Passionate about APIs, financial data mapping, system design, and AI developer workflows[cite: 1].</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Helena Guajardo • Built with Sky Blue Elegance • Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
-  </footer>
-
-  <!-- Scroll Animation JavaScript -->
   <script>
-    const faders = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up');
+    // Typing Animation Script
+    const fullName = "Helena Guajardo";
+    const typedNameElement = document.getElementById("typed-name");
+    const subtitleElement = document.getElementById("subtitle");
+    const navbarElement = document.getElementById("navbar");
+    let index = 0;
 
-    const appearOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px"
-    };
+    function typeName() {
+      if (index < fullName.length) {
+        typedNameElement.textContent += fullName.charAt(index);
+        index++;
+        setTimeout(typeName, 100); // Speed of typing
+      } else {
+        // Reveal subtitle and navigation tabs after typing completes
+        subtitleElement.classList.add("visible");
+        navbarElement.classList.add("visible");
+      }
+    }
 
-    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          return;
-        } else {
-          entry.target.classList.add('appear');
-          appearOnScroll.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
+    // Start typing animation on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeName, 300);
     });
-  </script>
 
+    // Tab Switching Functionality
+    function openTab(event, tabName) {
+      const tabContents = document.querySelectorAll(".tab-content");
+      const navButtons = document.querySelectorAll(".nav-btn");
+
+      // Hide all content panels
+      tabContents.forEach(content => content.classList.remove("active"));
+
+      // Remove active class from all buttons
+      navButtons.forEach(button => button.classList.remove("active"));
+
+      // Show current tab and set active button
+      document.getElementById(tabName).classList.add("active");
+      event.currentTarget.classList.add("active");
+    }
+  </script>
 </body>
 </html>
