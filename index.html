@@ -166,6 +166,39 @@
       color: #cbd5e1;
     }
 
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+      align-items: center;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      transform: translateY(-1px);
+    }
+
+    .linkedin-widget {
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
     /* Experience Section */
     .experience-grid {
       display: flex;
@@ -217,22 +250,118 @@
     .exp-summary {
       color: var(--text-muted);
       font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .site-preview-widget {
+      margin-top: 0.5rem;
+    }
+
+    .site-preview-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+      transition: var(--transition);
+    }
+
+    .site-preview-link:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+    }
+
+    .preview-browser {
+      background: #11151c;
+      padding: 0.7rem;
+    }
+
+    .preview-toolbar {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .preview-toolbar span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #475569;
+    }
+
+    .preview-body {
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(255,255,255,0.05));
+      padding: 0.9rem;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .preview-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .preview-lines {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .preview-lines div {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .preview-lines div:nth-child(2) {
+      width: 80%;
+    }
+
+    .preview-lines div:nth-child(3) {
+      width: 60%;
+    }
+
+    .preview-label {
+      display: block;
+      padding: 0.7rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      text-align: center;
     }
 
     /* Interests Section */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.25rem;
+    .interests-gallery {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.75rem;
+      scroll-snap-type: x proximity;
+    }
+
+    .interests-gallery::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .interests-gallery::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.35);
+      border-radius: 999px;
     }
 
     .interest-card {
+      flex: 0 0 220px;
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
+      padding: 1rem;
       transition: var(--transition);
+      scroll-snap-align: start;
     }
 
     .interest-card:hover {
@@ -240,15 +369,31 @@
       transform: translateY(-3px);
     }
 
-    .interest-icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      display: block;
+    .interest-image {
+      height: 140px;
+      border-radius: 10px;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f8fafc;
+      font-weight: 600;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.22), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1rem;
     }
 
     .interest-title {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .interest-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.4;
     }
 
     /* Responsive adjustments */
@@ -291,8 +436,15 @@
         <h2>About Me</h2>
         <div class="about-card">
           <p>
-            Hello! I'm Helena Guajardo. I specialize in solving complex technical and business challenges through modern strategy, operations, and innovative technology. I am passionate about creating impactful digital solutions and continuous learning in emerging fields.
-          </p>
+            Hello! I'm Helena. Currently a Product Operations Analyst at Instawork Robotics Lab. I believe great products give people a sense of control and freedom.
+          <div class="contact-links">
+            <a href="mailto:helena.c.guajardo@gmail.com" class="contact-link">✉️ Email</a>
+            <a href="https://www.linkedin.com/in/helena-guajardo/" target="_blank" rel="noopener noreferrer" class="contact-link">💼 LinkedIn</a>
+          </div>
+          <div class="linkedin-widget">
+            <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+            <script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/helena-guajardo/" data-format="inline" data-related="false"></script>
+          </div>
         </div>
       </section>
 
@@ -312,6 +464,22 @@
             <p class="exp-summary">
               Spearheaded technical workflows and automation initiatives integrating physical robotics with scalable labor management platforms to streamline operations and elevate workforce efficiency.
             </p>
+            <div class="site-preview-widget">
+              <a href="https://www.instawork.com/robotics" target="_blank" rel="noopener noreferrer" class="site-preview-link">
+                <div class="preview-browser">
+                  <div class="preview-toolbar"><span></span><span></span><span></span></div>
+                  <div class="preview-body">
+                    <div class="preview-title">Instawork Robotics</div>
+                    <div class="preview-lines">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+                <span class="preview-label">Open site</span>
+              </a>
+            </div>
           </div>
 
           <!-- Sage Intacct -->
@@ -325,6 +493,22 @@
             <p class="exp-summary">
               Optimized enterprise financial software integrations, driving operational excellence for business clients by delivering reliable financial technology frameworks and custom cloud strategies.
             </p>
+            <div class="site-preview-widget">
+              <a href="https://www.sage.com/en-us/sage-business-cloud/intacct/" target="_blank" rel="noopener noreferrer" class="site-preview-link">
+                <div class="preview-browser">
+                  <div class="preview-toolbar"><span></span><span></span><span></span></div>
+                  <div class="preview-body">
+                    <div class="preview-title">Sage Intacct</div>
+                    <div class="preview-lines">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+                <span class="preview-label">Open site</span>
+              </a>
+            </div>
           </div>
 
           <!-- Numerator -->
@@ -338,6 +522,22 @@
             <p class="exp-summary">
               Analyzed complex consumer behavior data and market intelligence feeds to provide enterprise brands with actionable metrics, predictive insights, and enhanced strategic positioning.
             </p>
+            <div class="site-preview-widget">
+              <a href="https://www.numerator.com/" target="_blank" rel="noopener noreferrer" class="site-preview-link">
+                <div class="preview-browser">
+                  <div class="preview-toolbar"><span></span><span></span><span></span></div>
+                  <div class="preview-body">
+                    <div class="preview-title">Numerator</div>
+                    <div class="preview-lines">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+                <span class="preview-label">Open site</span>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -346,22 +546,26 @@
       <!-- Interests Section -->
       <section id="interests" class="tab-content">
         <h2>Interests</h2>
-        <div class="interests-grid">
+        <div class="interests-gallery">
           <div class="interest-card">
-            <span class="interest-icon">🥾</span>
+            <div class="interest-image">Placeholder<br />Hiking Photo</div>
             <div class="interest-title">Hiking</div>
+            <div class="interest-caption">Mountain trails and quiet views.</div>
           </div>
           <div class="interest-card">
-            <span class="interest-icon">🍳</span>
+            <div class="interest-image">Placeholder<br />Cooking Shot</div>
             <div class="interest-title">Cooking</div>
+            <div class="interest-caption">Experimenting with new flavors and comfort food.</div>
           </div>
           <div class="interest-card">
-            <span class="interest-icon">🤖</span>
+            <div class="interest-image">Placeholder<br />AI Project</div>
             <div class="interest-title">AI</div>
+            <div class="interest-caption">Exploring how technology can simplify work.</div>
           </div>
           <div class="interest-card">
-            <span class="interest-icon">✈️</span>
+            <div class="interest-image">Placeholder<br />Travel Memory</div>
             <div class="interest-title">Travel</div>
+            <div class="interest-caption">New places, new perspectives, and good stories.</div>
           </div>
         </div>
       </section>
